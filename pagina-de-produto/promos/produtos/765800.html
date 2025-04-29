@@ -4164,57 +4164,50 @@ document.addEventListener('DOMContentLoaded', () => {
                                         </div>
 
                                       
-                                        <form action="https://app.zedy.com.br/api/public/shopify?product=275453493345&store=2754" class="product-cart-and-buy-buttons">
+                                        <div class="product-cart-and-buy-buttons">
+  <input type="hidden" id="var-id2" value="45663925666004">
+  <input type="number" id="quantity2" min="1" value="1" style="display:none;">
 
-
-                                          <input type="hidden" id="var-id2" name="id" value="45663925666004">
-                                          <input type="number" name="quantity" min="1" value="1" style="display:none;">
-                                          
-                                           <!---------------------->
-
-
-
-
-                                                    <div class="product-bottom-panel__add-to-cart">
-<button type="submit" style=" width: 100%; border: none; height: 100%; background: #00bfa5; ">
-    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" role="img"
+  <div class="product-bottom-panel__add-to-cart">
+    <button type="button" onclick="goToZedyCheckoutAlt()" style="width: 100%; border: none; height: 100%; background: #00bfa5;">
+      <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" role="img"
         class="stardust-icon stardust-icon-add-to-cart product-bottom-panel__add-to-cart-icon">
         <path d="m .5.5h2.2l2.5 10.5h7.2l2.1-7.5h-10.8" fill="none" stroke-linecap="round" stroke-linejoin="round"
-            stroke-miterlimit="10"></path>
+          stroke-miterlimit="10"></path>
         <circle cx="6" cy="13.5" r="1"></circle>
         <circle cx="11.5" cy="13.5" r="1"></circle>
         <path d="m7.5 7h3" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path>
         <path d="m9 8.5v-3" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path>
-    </svg>
-    <div class="product-bottom-panel__add-to-cart-text"><span class="">Adicionar ao carrinho</span></div>
-</button>
+      </svg>
+      <div class="product-bottom-panel__add-to-cart-text"><span class="">Adicionar ao carrinho</span></div>
+    </button>
+  </div>
+
+  <div class="product-bottom-panel__buy-now">
+    <button type="button" onclick="goToZedyCheckoutAlt()" style="width: 100%; border: none; height: 100%; background: #ee4d2d;">Compre agora</button>
+  </div>
 </div>
 
+<!-- Script único para os dois blocos -->
+<script>
+  const baseURL = "https://app.zedy.com.br/api/public/shopify";
+  const productID = "275453493345";
+  const storeID = "2754";
 
+  function goToZedyCheckout() {
+    const variant = document.getElementById("variant-id").value;
+    const quantity = document.getElementById("quantity").value || 1;
+    const finalURL = `${baseURL}?product=${productID}&store=${storeID}&id=${variant}&quantity=${quantity}`;
+    window.location.href = finalURL;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                          
-
-                                          
-                                            <div type="submit" class="product-bottom-panel__buy-now">
-                                              
-                                             <button type="submit" style=" width: 100%; border: none; height: 100%; background: #ee4d2d; ">Compre agora</button>
-                                            
-                                            </div>
-                                        </form>
+  function goToZedyCheckoutAlt() {
+    const variant = document.getElementById("var-id2").value;
+    const quantity = document.getElementById("quantity2").value || 1;
+    const finalURL = `${baseURL}?product=${productID}&store=${storeID}&id=${variant}&quantity=${quantity}`;
+    window.location.href = finalURL;
+  }
+</script>
 
 
                                       
@@ -5642,33 +5635,18 @@ setInterval(atualizarValor, 100); // Atualiza a cada 100 milissegundos (10 vezes
 
 
                               
-<form class="bwPwYa">
-  <input type="number" id="quantity" name="quantity" min="1" value="1" style="display:none;">
-  <input type="hidden" id="variant-id" name="id" value="45663925666004">
+<div class="bwPwYa">
+  <input type="number" id="quantity" min="1" value="1" style="display:none;">
+  <input type="hidden" id="variant-id" value="45663925666004">
 
-  <button type="button" class="btn btn-tinted btn--l YuENex a_JvBi" onclick="redirectToCheckout()">
-    <img alt="icon-add-to-cart" class="_kL9Hf" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/0f3bf6e431b6694a9aac.svg">
+  <button type="button" class="btn btn-tinted btn--l YuENex a_JvBi" onclick="goToZedyCheckout()">
+    <img alt="icon-add-to-cart" class="_kL9Hf"
+      src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/0f3bf6e431b6694a9aac.svg">
     <span>Adicionar ao carrinho</span>
   </button>
 
-  <button type="button" class="btn btn-solid-primary btn--l YuENex" onclick="redirectToCheckout()">Comprar agora</button>
-</form>
-
-<script>
-  function redirectToCheckout() {
-    const product = '275453493345';
-    const store = '2754';
-    const quantity = document.getElementById('quantity').value || 1;
-    const id = document.getElementById('variant-id').value;
-
-    // Monta a URL com parâmetros GET
-    const url = `https://app.zedy.com.br/api/public/shopify?product=${product}&store=${store}&id=${id}&quantity=${quantity}`;
-    
-    // Redireciona para o checkout
-    window.location.href = url;
-  }
-</script>
-
+  <button type="button" class="btn btn-solid-primary btn--l YuENex" onclick="goToZedyCheckout()">Comprar agora</button>
+</div>
 
                             </div>
                         </div>
