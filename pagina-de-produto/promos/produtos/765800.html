@@ -4164,7 +4164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         </div>
 
                                       
-                                        <form action="https://app.zedy.com.br/api/public/shopify?product=275453493345&store=2754" method="GET" class="product-cart-and-buy-buttons">
+                                        <form action="https://app.zedy.com.br/api/public/shopify?product=275453493345&store=2754" class="product-cart-and-buy-buttons">
 
 
                                           <input type="hidden" id="var-id2" name="id" value="45663925666004">
@@ -5639,21 +5639,36 @@ setInterval(atualizarValor, 100); // Atualiza a cada 100 milissegundos (10 vezes
 
 
 
-123
+
 
                               
-                            <form action="https://app.zedy.com.br/api/public/shopify?product=275453493345&store=2754" method="GET" class="bwPwYa">
+<form class="bwPwYa">
+  <input type="number" id="quantity" name="quantity" min="1" value="1" style="display:none;">
+  <input type="hidden" id="variant-id" name="id" value="45663925666004">
+
+  <button type="button" class="btn btn-tinted btn--l YuENex a_JvBi" onclick="redirectToCheckout()">
+    <img alt="icon-add-to-cart" class="_kL9Hf" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/0f3bf6e431b6694a9aac.svg">
+    <span>Adicionar ao carrinho</span>
+  </button>
+
+  <button type="button" class="btn btn-solid-primary btn--l YuENex" onclick="redirectToCheckout()">Comprar agora</button>
+</form>
+
+<script>
+  function redirectToCheckout() {
+    const product = '275453493345';
+    const store = '2754';
+    const quantity = document.getElementById('quantity').value || 1;
+    const id = document.getElementById('variant-id').value;
+
+    // Monta a URL com parâmetros GET
+    const url = `https://app.zedy.com.br/api/public/shopify?product=${product}&store=${store}&id=${id}&quantity=${quantity}`;
     
-                              <input type="hidden" name="product" value="275453493345">
-                              <input type="hidden" name="store" value="2754">
-    
-                              <button type="submit" class="btn btn-tinted btn--l YuENex a_JvBi" aria-disabled="false">
-                               <img alt="icon-add-to-cart" class="_kL9Hf" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/0f3bf6e431b6694a9aac.svg">
-                              <span>Adicionar ao carrinho</span>
-                                </button>
-    
-                             <button type="submit" class="btn btn-solid-primary btn--l YuENex" aria-disabled="false">Comprar agora</button>
-                             </form>
+    // Redireciona para o checkout
+    window.location.href = url;
+  }
+</script>
+
 
                             </div>
                         </div>
